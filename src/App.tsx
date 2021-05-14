@@ -34,9 +34,8 @@ class App extends Component<AppProps, AppState> {
     const listItems = this.state.list.map((item, index) => {
       return (
         <li className={`list-group-item d-flex align-items-center`} key={index}>
-          <div onClick={() => this.markAsCompleted(index)}>
-            <input className="form-check-input me-1" type="checkbox" checked={item.completed}/>
-          </div>
+          <input className="form-check-input me-1" type="checkbox" checked={item.completed}
+                 onChange={() => this.markAsCompleted(index)}/>
           <div className={`ms-2 me-auto`}>
             <span className={`${item.completed ? 'text-decoration-line-through' : ''}`}>{item.title}</span>
             <span className={`ms-2 , ${!item.completed ? 'd-none' : ''}`}>
